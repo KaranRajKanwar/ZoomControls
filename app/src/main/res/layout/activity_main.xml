@@ -4,22 +4,54 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    tools:layout_editor_absoluteY="81sp">
 
-    <TextView
+    <ImageView
+        android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="39sp"
+        android:layout_marginBottom="12sp"
+        android:src="@drawable/bmw"
+        android:layout_centerInParent="true"
+        app:layout_constraintBottom_toTopOf="@+id/ZoomControl"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ZoomControls
-        android:id="@+id/simpleZoomControl"
+        android:id="@+id/ZoomControl"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="112dp"
-        tools:layout_editor_absoluteY="428dp" />
+        android:layout_marginBottom="15sp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        app:layout_constraintBottom_toTopOf="@+id/hidebtn"
+        app:layout_constraintEnd_toStartOf="@+id/hidebtn"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <Button
+        android:id="@+id/showbtn"
+        android:layout_width="80sp"
+        android:layout_height="80sp"
+        android:layout_marginStart="32sp"
+        android:layout_marginEnd="167sp"
+        android:text="@string/show"
+        app:layout_constraintBottom_toBottomOf="@+id/hidebtn"
+        app:layout_constraintEnd_toStartOf="@+id/hidebtn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/hidebtn" />
+
+    <Button
+        android:id="@+id/hidebtn"
+        android:layout_width="80sp"
+        android:layout_height="80sp"
+        android:layout_marginEnd="25sp"
+        android:layout_marginBottom="30sp"
+        android:text="@string/hide"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/showbtn"
+        app:layout_constraintTop_toBottomOf="@+id/ZoomControl" />
 
 </android.support.constraint.ConstraintLayout>
