@@ -2,10 +2,10 @@
 
 ## The Introduction
 
-ZoomControls is a android widget class and Its main focus is to display simple controls for zooming in and zooming out for certain events.
+ZoomControls is a android widget class and Its main focus is to display simple controls for zooming in and zooming out for certain events. This can be used when zooming into any type of view, for example a textview, imageview , button and many other views. What happens when you place the Zoomcontrols library in the .xml file is it creates the  + and - icon for zooming in and zooming out but doesnt have functionality until you dont give it any logic. Once the button is given a id and declared as a resource in the activity you have functionality to either hide or show the zoom controls using a button declared in the resources. Those buttons must be in a  setOnClickListener for them to function when clicked, to be able to click the + and - in the zoomcontrols you must declare the id for the zoomController in the activity and then set the click by doing this "ZoomControls.setOnZoomInClickListener" which will respond to clicks on the + icon for zooming in and "ZoomControls.setOnZoomOutClickListener" which will respond to clicks on the - icon for zooming out. But now that you can click the zoomcontrols you must add logic into the onclicks, the code will look similar doe both + and - as the only difference will be the fact that one button is for zooming in and one is for zooming out. Inside both onclicks delcare variables for x and y floats as imagename.getScaleX() and imagename.getScaleY() and then on the next line add the values to imagename.getScale((float)(x+0.3)) you would rewrite that statement except with the value y. Then for - button we would do the same stuff except now instead of + we use - as so imagename.getScale((float)(x-0.3)).
 
 ## The History
-The ZoomControl class was was introduced in API 1and its included in the android.view.View
+The ZoomControl class was was introduced in API 1 and its included in the android.view.View, android.view.ViewGroup and android.widgetLinearLayout.
 
 ## The Major Methods / Attributes
 |                            METHOD                            |                                USAGE 
@@ -109,7 +109,8 @@ public class MainActivity extends AppCompatActivity {
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     tools:layout_editor_absoluteY="81sp">
-
+  
+<!--Whatever picture I want to use the zoom functionality-->
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
@@ -121,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
         app:layout_constraintBottom_toTopOf="@+id/ZoomControl"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
+<!-- Creating the zoomcontrols button for the project-->
     <ZoomControls
         android:id="@+id/ZoomControl"
         android:layout_width="wrap_content"
@@ -133,6 +134,7 @@ public class MainActivity extends AppCompatActivity {
         app:layout_constraintEnd_toStartOf="@+id/hidebtn"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
+  <!--button for showing the zoomcontrol button-->
     <Button
         android:id="@+id/showbtn"
         android:layout_width="80sp"
@@ -144,7 +146,7 @@ public class MainActivity extends AppCompatActivity {
         app:layout_constraintEnd_toStartOf="@+id/hidebtn"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/hidebtn" />
-
+  <!--button for hiding the zoomcontrol button-->
     <Button
         android:id="@+id/hidebtn"
         android:layout_width="80sp"
@@ -161,6 +163,7 @@ public class MainActivity extends AppCompatActivity {
 ```
                                                   strings.xml
 ```xml
+<!--All of the strings required in the program-->
 <resources>
     <string name="app_name">ZoomControls</string>
     <string name="show">Show</string>
@@ -168,3 +171,7 @@ public class MainActivity extends AppCompatActivity {
 </resources>
 ```
 ## The Reference
+
+-https://developer.android.com/reference/android/widget/ZoomControls
+
+-https://abhiandroid.com/ui/zoomcontrols
